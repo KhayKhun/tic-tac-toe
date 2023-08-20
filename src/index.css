@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply h-screen flex justify-center items-center
+  }
+
+  .container {
+    @apply grid grid-cols-3
+  }
+
+  .cell {
+    @apply w-28 h-28 border border-black
+  }
+
+  .alert {
+    @apply bg-green-800 rounded-lg text-white w-[400px] h-[250px]
+  }
+}
+
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
