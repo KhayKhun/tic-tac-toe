@@ -28,22 +28,21 @@ function App() {
     };
     }
 
-  useEffect(() => {
-    for (let i of possibleWins){
-      const [a,b,c]= i;
-      if (data[a] !== '' && data[a] === data[b] && data[b] === data[c]){
-        console.log('con1')
-        setWinner(data[a])
-        setEnd(true)
-        return;
-      } else if(!data.includes('')){
-        console.log('con2')
-        setEnd(true)
-        return;
-      }
+useEffect(() => {
+  for (let i of possibleWins){
+    const [a,b,c]= i;
+    if (data[a] !== '' && data[a] === data[b] && data[b] === data[c]){
+      setWinner(data[a]);
+      setEnd(true);
+      return;
     }
+  }
 
-  }, [data])
+  if (!data.includes('')){
+    setEnd(true);
+    // setWinner(null);
+  }
+}, [data])
 
   function handleRestart(){
     setData(['','','','','','','','','',])
@@ -54,7 +53,7 @@ function App() {
 
   return (
     <main>
-      <p>Player {Xturn ? 'X' : 'O'}'s turn!</p>
+      <p className='text-white font-2xl'>Player <b className='text-4xl text-green-400'>{Xturn ? 'X' : 'O'}</b>'s turn!</p>
       <div className='container'>
         {
           data.map((d,index)=> {
@@ -62,6 +61,7 @@ function App() {
           })
         }
       </div>
+      
       {end ? <Alertbox winner={winner} restart={()=>{handleRestart()}}/> : null}
     </main>
   )

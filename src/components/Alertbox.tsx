@@ -5,11 +5,12 @@ type AlertboxProps = {
 }
 
 const Alertbox = ({ winner , restart}: AlertboxProps) => {
-    console.log(winner)
   return (
     <div className="alert">
-        {!winner ? <h1>Draw match!</h1> : <h1>Player <b>{winner}</b> wins!</h1>}
-        <button onClick={restart}>Restart</button>
+        <div className="flex flex-col items-center gap-6">
+          <h1 className="result">{!winner ? 'Draw match!' : <>Player <b>{winner}</b> wins!</> }</h1>
+          <button onClick={restart} className="restart-btn">Restart</button>
+        </div>
     </div>
   )
 }

@@ -7,7 +7,7 @@ type CellProps = {
 
 const CellComponent = ({index, value, clickFunc}: CellProps) => {
   return (
-    <button className='cell' onClick={()=>{clickFunc(index)}}>{value}</button>
+    <button className={`cell ${value === 'X' ? 'text-red-600' : 'text-blue-600'}`} onClick={()=>{clickFunc(index)}}> {value} </button>
   )
 }
 

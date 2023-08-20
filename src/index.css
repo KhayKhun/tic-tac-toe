@@ -4,25 +4,34 @@
 
 @layer components {
   body {
-    @apply h-screen flex justify-center items-center
+    @apply h-screen flex justify-center items-center bg-gray-700
+  }
+
+  main {
+    @apply flex flex-col items-center gap-7
   }
 
   .container {
-    @apply grid grid-cols-3
+    @apply grid grid-cols-3 gap-2
   }
 
   .cell {
-    @apply w-28 h-28 border border-black
+    @apply w-16 h-16 md:w-28 md:h-28 border border-gray-400 bg-gray-200 text-white text-4xl md:text-5xl font-extrabold rounded-md shadow-sm
   }
 
   .alert {
-    @apply bg-green-800 rounded-lg text-white w-[400px] h-[250px]
+    @apply fixed w-screen h-screen top-0 left-0 flex justify-center items-center text-white
+  }
+
+  .result {
+    @apply text-4xl
+  }
+
+  .restart-btn {
+    @apply border px-5 py-3 bg-blue-700  rounded-md hover:bg-blue-900 
   }
 }
 
 .alert {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0,0, 0.8);
 }
